@@ -2,10 +2,9 @@
 
 import requests
 import re
-import os
-import syslog
+import heartbeat
 
-HEARTBEAT_FILE = '/var/lib/check_mk_heartbeat'
+HEARTBEAT_FILE = '/var/tmp/check_mk_heartbeat'
 NAGIOS_STATUS = {
     'OK': 0,
     'WARN': 1,
@@ -69,18 +68,7 @@ def check_service(url, regex_content=None):
 
     return 'OK', "All is well. Service status code: %s" % req.status_code
 
-
-def register_check_mk_heartbeat():
-    """Touch heartbeat file each time this local_check is called to signal that
-       check_mk is alive...Its alive Dr. Frankenstein!"""
-    try:
-        with open(HEARTBEAT_FILE, 'a'):
-            os.utime(HEARTBEAT_FILE, None)
-    except IOError:
-        syslog.syslog(syslog.LOG_ERR, "Could not update heartbeat file %s." %
-                      HEARTBEAT_FILE)
-
-
 if __name__ == "__main__":
-    register_check_mk_heartbeat()
+    heartbeatfile = heartbeat.HeartbeatFile(HEARTBEAT_FILE)
+    heartbeatfile.register_heartbeat()
     check_all_services()
