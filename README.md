@@ -17,7 +17,8 @@ ln -s <path_to_repo/scripts/monitor_check_mk.py
 
 Add monitor_check_mk to cron.d:
 ```
-*/10   *    *   *   *  nobody  /usr/local/bin/monitor_check_mk.py > /dev/null
+*/3   *    *   *   *  nobody  /usr/local/bin/monitor_check_mk.py > /dev/null
+
 ```
 
 Edit 'only_from' and 'disable' directive in /etc/xinetd.d/check_mk and restart service:

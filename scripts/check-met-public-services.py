@@ -31,9 +31,23 @@ services = {
         },
     'spesial.met.no': {
         'url': 'http://spesial.met.no'
+        },
+    'klimaservicesenter.no': {
+        'url': 'https://klimaservicesenter.no'
+        },
+    'myocean.met.no': {
+        'url': 'http://myocean.met.no'
+        },
+    'metlex.met.no': {
+        'url': 'http://metlex.met.no'
+        },
+    'svn.met.no': {
+        'url': 'http://svn.met.no'
+        },
+    'wsklima.met.no': {
+        'url': 'http://wsklima.met.no'
         }
-
-    }
+}
 
 
 def check_all_services():
