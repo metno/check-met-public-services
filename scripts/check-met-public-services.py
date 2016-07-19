@@ -29,9 +29,6 @@ services = {
     'thredds.met.no': {
         'url': 'http://thredds.met.no'
         },
-    'spesial.met.no': {
-        'url': 'http://spesial.met.no'
-        },
     'klimaservicesenter.no': {
         'url': 'https://klimaservicesenter.no'
         },
